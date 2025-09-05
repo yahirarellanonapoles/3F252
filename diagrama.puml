@@ -1,1 +1,91 @@
-
+@startuml
+class GeometryDash
+class PantallaInicio{
+CofreDiario
+Configuracion
+Nivel
+}
+class Configuracion
+class Muerte
+class CofreDiario{
+CofreChico
+CofreGrande
+}
+class CofreGrande
+class CofreChico
+class Jugador{
+Nombre
+}
+class Nivel{
+Musica
+Fondo
+Plataforma
+Obstaculo
+}
+class Cubo{
+Posicion
+EfectoMuerte
+Skin
+}
+class Nombre
+class EfectoMuerte
+class Skin{
+Color
+Forma
+}
+class Color
+class Forma
+class Nave
+class Erizo
+class Araña
+class Musica
+class Fondo{
+Animacion
+Imagen
+}
+class Plataforma
+class Obstaculo{
+TipoObstaculo
+Posicion
+}
+class Animacion
+class Imagen
+class Wave
+class Pincho
+class Sierra
+class Dragon
+class Murcielago
+GeometryDash *-- PantallaInicio
+PantallaInicio *-- Configuracion
+PantallaInicio *-- CofreDiario
+GeometryDash *-- Jugador
+PantallaInicio *--"*" Nivel
+CofreDiario *-- CofreGrande
+CofreDiario *-- CofreChico
+Jugador o-- Obstaculo
+Jugador --|> Cubo
+Jugador *-- Nombre
+Cubo *-- EfectoMuerte
+Cubo *-- Posicion
+Cubo *--"*" Skin
+Skin *-- Color
+Skin *-- Forma
+Forma <|-- Nave
+Forma <|-- Erizo
+Forma <|-- Araña
+Forma <|-- Wave
+Nivel *-- Musica
+Nivel *-- Fondo
+Nivel *--"*" Plataforma
+Nivel *--"*" Obstaculo
+Fondo *-- Animacion
+Fondo *-- Imagen
+class TipoObstaculo
+Obstaculo *-- TipoObstaculo
+Obstaculo *-- Posicion
+TipoObstaculo <|-- Pincho
+TipoObstaculo <|-- Sierra
+TipoObstaculo <|-- Dragon
+TipoObstaculo <|-- Murcielago
+Obstaculo o-- Muerte
+@enduml
